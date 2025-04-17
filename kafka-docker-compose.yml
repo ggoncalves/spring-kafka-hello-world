@@ -1,0 +1,20 @@
+version: '3'                              # Specifies Docker Compose file format version
+services:                                 # Begins the services section (containers to be created)
+  zookeeper:                              # First service name - ZooKeeper
+    image: confluentinc/cp-zookeeper:7.4.0 # Docker image to use
+    environment:                          # Environment variables for this container
+      ZOOKEEPER_CLIENT_PORT: 2181         # Port ZooKeeper will listen on
+    ports:                                # Port mappings (host:container)
+      - "2181:2181"                       # Maps host port 2181 to container port 2181
+
+  kafka:                                  # Second service name - Kafka
+    image: confluentinc/cp-kafka:7.4.0    # Docker image to use
+    depends_on:                           # Specifies this container depends on zookeeper
+      - zookeeper                         # Ensures zookeeper starts before kafka
+    ports:                                # Port mappings (host:container)
+      - "9092:9092"                       # Maps host port 9092 to container port 9092
+    environment:                          # Environment variables for this container
+      KAFKA_BROKER_ID: 1                  # Unique ID for this broker
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 # How Kafka connects to ZooKeeper
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092 # Address clients will use to connect
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 # Single replica for topic partitions
