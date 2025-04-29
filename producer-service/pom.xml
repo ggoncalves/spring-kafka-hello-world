@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.ggoncalves.eventdriven.hello</groupId>
-        <artifactId>spring-kafta-hello-world</artifactId>
+        <artifactId>spring-kafka-hello-world</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -66,6 +66,12 @@
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ggoncalves.eventdriven.hello</groupId>
+            <artifactId>shared-domain</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

@@ -6,7 +6,7 @@
 
     <parent>
         <groupId>com.ggoncalves.eventdriven.hello</groupId>
-        <artifactId>spring-kafta-hello-world</artifactId>
+        <artifactId>spring-kafka-hello-world</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -52,10 +52,15 @@
             <artifactId>log4j-core</artifactId>
         </dependency>
 
-        <!-- SLF4J Binding - Log4j 2 -->
+        <!-- SLF4J Binding - Log4j 2 >
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
+        </dependency -->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
 
         <dependency>
@@ -66,6 +71,12 @@
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ggoncalves.eventdriven.hello</groupId>
+            <artifactId>shared-domain</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

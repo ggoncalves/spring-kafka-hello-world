@@ -1,4 +1,4 @@
-package com.ggoncalves.eventdriven.hello.producer.domain;
+package com.ggoncalves.eventdriven.hello.shared.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

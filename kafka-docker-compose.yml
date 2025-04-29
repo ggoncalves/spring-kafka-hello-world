@@ -1,4 +1,3 @@
-version: '3'                              # Specifies Docker Compose file format version
 services:                                 # Begins the services section (containers to be created)
   zookeeper:                              # First service name - ZooKeeper
     image: confluentinc/cp-zookeeper:7.4.0 # Docker image to use
