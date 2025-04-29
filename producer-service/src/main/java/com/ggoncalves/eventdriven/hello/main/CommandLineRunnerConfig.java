@@ -2,14 +2,14 @@ package com.ggoncalves.eventdriven.hello.main;
 
 import com.ggoncalves.eventdriven.hello.producer.infrastructure.MessagePublisher;
 import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEventMessage;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Scanner;
 
-@Slf4j
+@Log4j2
 @Configuration
 public class CommandLineRunnerConfig {
 
