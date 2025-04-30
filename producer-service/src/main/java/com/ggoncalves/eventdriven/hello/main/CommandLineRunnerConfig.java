@@ -1,7 +1,8 @@
 package com.ggoncalves.eventdriven.hello.main;
 
+import com.ggoncalves.eventdriven.hello.producer.infrastructure.EventFactory;
 import com.ggoncalves.eventdriven.hello.producer.infrastructure.MessagePublisher;
-import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEventMessage;
+import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEvent;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -28,9 +29,9 @@ public class CommandLineRunnerConfig {
           break;
         }
 
-        HelloWorldEventMessage message = HelloWorldEventMessage.create(input);
-        messagePublisher.publishHelloMessage(message);
-        log.info("Published message: {}", message);
+        HelloWorldEvent event = EventFactory.createHelloWorldMessage(input);
+        messagePublisher.publishHelloMessage(event);
+        log.info("Published message: {}", event);
       }
 
       scanner.close();

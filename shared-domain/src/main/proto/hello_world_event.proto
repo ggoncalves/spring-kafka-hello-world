@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.ggoncalves.eventdriven.hello.shared.domain;
+
+option java_multiple_files = true;
+option java_package = "com.ggoncalves.eventdriven.hello.shared.domain";
+option java_outer_classname = "HelloWorldEventProto";
+
+message HelloWorldEvent {
+  string id = 1;
+  string message = 2;
+  int64 timestamp = 3;
+}

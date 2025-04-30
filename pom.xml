@@ -25,6 +25,7 @@
     <assertj.version>3.24.2</assertj.version>
     <lombok.version>1.18.30</lombok.version>
     <spring-kafka.version>3.1.0</spring-kafka.version>
+    <google.protobuf.version>4.29.3</google.protobuf.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -109,9 +110,27 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
       </dependency>
+      <!-- Google Protobuf -->
+      <dependency>
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java</artifactId>
+        <version>${google.protobuf.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java-util</artifactId>
+        <version>${google.protobuf.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
+    <extensions>
+      <extension>
+        <groupId>kr.motd.maven</groupId>
+        <artifactId>os-maven-plugin</artifactId>
+        <version>1.7.0</version>
+      </extension>
+    </extensions>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -161,9 +180,25 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
+        <groupId>org.xolstice.maven.plugins</groupId>
+        <artifactId>protobuf-maven-plugin</artifactId>
+        <version>0.6.1</version>
+        <extensions>true</extensions>
+        <configuration>
+          <!--suppress UnresolvedMavenProperty -->
+          <protocArtifact>com.google.protobuf:protoc:${google.protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
+          <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
+          <outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
+
 </project>
