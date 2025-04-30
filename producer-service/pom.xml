@@ -14,13 +14,11 @@
     <name>producer-service</name>
 
     <dependencies>
-        <!-- JUnit -->
+        <!-- Testing Dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
         </dependency>
-
-        <!-- Mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
@@ -29,8 +27,6 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
         </dependency>
-
-        <!-- AssertJ -->
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
@@ -42,7 +38,7 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
-        <!-- Log4j 2 API and Core -->
+        <!-- Logging -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
@@ -52,40 +48,34 @@
             <artifactId>log4j-core</artifactId>
         </dependency>
 
-        <!-- SLF4J Binding - Log4j 2 -->
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.logging.log4j</groupId>-->
-        <!--            <artifactId>log4j-slf4j2-impl</artifactId>-->
-        <!--        </dependency>-->
-
+        <!-- Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Kafka -->
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
         </dependency>
 
+        <!-- Internal Dependencies -->
         <dependency>
             <groupId>com.ggoncalves.eventdriven.hello</groupId>
             <artifactId>shared-domain</artifactId>
             <version>${project.version}</version>
         </dependency>
 
-        <!-- Confluent Schema Registry and Protobuf Serialization -->
+        <!-- Confluent Schema Registry -->
         <dependency>
             <groupId>io.confluent</groupId>
             <artifactId>kafka-protobuf-serializer</artifactId>
-            <version>7.4.0</version>
         </dependency>
         <dependency>
             <groupId>io.confluent</groupId>
             <artifactId>kafka-schema-registry-client</artifactId>
-            <version>7.4.0</version>
         </dependency>
-
     </dependencies>
 
     <build>

@@ -58,7 +58,6 @@ bin/
 tmp/
 *.tmp
 *.bak
-*.swp
 *~.nib
 local.properties
 .settings/
@@ -90,6 +89,7 @@ $RECYCLE.BIN/
 # Temporary files
 *.swp
 *~
+CLAUDE.md
 
 # Node (in case of frontend tooling)
 node_modules/
