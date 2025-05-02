@@ -10,21 +10,21 @@ import org.springframework.test.util.ReflectionTestUtils;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-@DisplayName("KafkaConsumerConfig should")
-class KafkaConsumerConfigTest {
+@DisplayName("KafkaMessagingConfiguration should")
+class KafkaMessagingConfigurationTest {
 
   @InjectMocks
-  private KafkaConsumerConfig kafkaConsumerConfig;
+  private KafkaMessagingConfiguration kafkaMessagingConfiguration;
 
   @Test
   @DisplayName("should have default group ID when not specified")
   void shouldHaveDefaultGroupIdWhenNotSpecified() {
     // Given
     // Spring's @Value isn't processed in unit tests, so we need to set it manually
-    ReflectionTestUtils.setField(kafkaConsumerConfig, "groupId", "hello-consumer-group");
+    ReflectionTestUtils.setField(kafkaMessagingConfiguration, "groupId", "hello-consumer-group");
 
     // When
-    String actualGroupId = kafkaConsumerConfig.getGroupId();
+    String actualGroupId = kafkaMessagingConfiguration.getGroupId();
 
     // Then
     assertThat(actualGroupId)
@@ -37,10 +37,10 @@ class KafkaConsumerConfigTest {
   void shouldUseCustomGroupIdWhenSpecified() {
     // Given
     String customGroupId = "custom-consumer-group";
-    ReflectionTestUtils.setField(kafkaConsumerConfig, "groupId", customGroupId);
+    ReflectionTestUtils.setField(kafkaMessagingConfiguration, "groupId", customGroupId);
 
     // When
-    String actualGroupId = kafkaConsumerConfig.getGroupId();
+    String actualGroupId = kafkaMessagingConfiguration.getGroupId();
 
     // Then
     assertThat(actualGroupId)

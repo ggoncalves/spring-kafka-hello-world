@@ -7,6 +7,7 @@ import lombok.Getter;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
@@ -20,12 +21,16 @@ import org.springframework.util.backoff.FixedBackOff;
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
 @Getter
-public class KafkaConsumerConfig {
+@Configuration
+@ConditionalOnProperty(name = "messaging.provider", havingValue = "kafka")
+public class KafkaMessagingConfiguration implements MessagingConfiguration {
+
+  @Value("${kafka.topics.hello}")
+  private String topicName;
 
   // Must be set using environment variable `--kafka.consumer.group-id`
-  // eg.: mvn spring-boot:run -Dspring-boot.run.arguments="--kafka.consumer.group-id=<group_id_name>"
+  // e.g.: mvn spring-boot:run -Dspring-boot.run.arguments="--kafka.consumer.group-id=<group_id_name>"
   //
   // Default Value is `hello-consumer-group`
   @Value(value = "${kafka.consumer.group-id:hello-consumer-group}")
@@ -34,8 +39,8 @@ public class KafkaConsumerConfig {
   @Value("${spring.kafka.bootstrap-servers}")
   private String bootstrapServers;
 
-
   @Bean
+  @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
   public <T extends Message> ConsumerFactory<String, T> consumerFactory(Parser<T> parser) {
     Map<String, Object> props = new HashMap<>();
     props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
