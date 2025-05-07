@@ -1,5 +1,6 @@
-package com.ggoncalves.eventdriven.hello.producer.infrastructure;
+package com.ggoncalves.eventdriven.hello.producer.infrastructure.kafka;
 
+import com.ggoncalves.eventdriven.hello.producer.infrastructure.MessagePublisher;
 import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

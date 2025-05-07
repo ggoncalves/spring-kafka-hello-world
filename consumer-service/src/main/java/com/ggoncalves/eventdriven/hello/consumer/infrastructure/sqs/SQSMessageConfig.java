@@ -1,4 +1,4 @@
-package com.ggoncalves.eventdriven.hello.consumer.infrastructure;
+package com.ggoncalves.eventdriven.hello.consumer.infrastructure.sqs;
 
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;

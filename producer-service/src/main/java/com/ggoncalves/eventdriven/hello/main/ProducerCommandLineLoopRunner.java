@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 @Log4j2
 @Configuration
-public class CommandLineRunnerConfig {
+public class ProducerCommandLineLoopRunner {
 
   @Bean
   public CommandLineRunner commandLineRunner(MessagePublisher messagePublisher) {

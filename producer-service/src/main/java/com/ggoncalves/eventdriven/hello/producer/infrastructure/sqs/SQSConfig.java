@@ -1,4 +1,4 @@
-package com.ggoncalves.eventdriven.hello.producer.infrastructure;
+package com.ggoncalves.eventdriven.hello.producer.infrastructure.sqs;
 
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.regions.Regions;

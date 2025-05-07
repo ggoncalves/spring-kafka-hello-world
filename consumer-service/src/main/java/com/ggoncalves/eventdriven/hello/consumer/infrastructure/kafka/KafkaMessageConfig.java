@@ -1,5 +1,6 @@
-package com.ggoncalves.eventdriven.hello.consumer.infrastructure;
+package com.ggoncalves.eventdriven.hello.consumer.infrastructure.kafka;
 
+import com.ggoncalves.eventdriven.hello.consumer.infrastructure.CustomProtobufDeserializer;
 import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEvent;
 import com.google.protobuf.Message;
 import com.google.protobuf.Parser;
@@ -24,7 +25,7 @@ import java.util.Map;
 @Getter
 @Configuration
 @ConditionalOnProperty(name = "messaging.provider", havingValue = "kafka")
-public class KafkaMessagingConfiguration implements MessagingConfiguration {
+public class KafkaMessageConfig implements MessagingConfiguration {
 
   @Value("${kafka.topics.hello}")
   private String topicName;

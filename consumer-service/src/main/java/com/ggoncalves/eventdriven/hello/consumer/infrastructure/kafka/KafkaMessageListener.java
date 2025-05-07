@@ -1,5 +1,6 @@
-package com.ggoncalves.eventdriven.hello.consumer.infrastructure;
+package com.ggoncalves.eventdriven.hello.consumer.infrastructure.kafka;
 
+import com.ggoncalves.eventdriven.hello.consumer.infrastructure.MessageListener;
 import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEvent;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -17,11 +18,11 @@ public class KafkaMessageListener implements MessageListener {
    *
    * @param message the HelloWorldEventMessage object containing the id, message content,
    *                and timestamp of the event
-   * @see com.ggoncalves.eventdriven.hello.consumer.infrastructure.KafkaMessagingConfiguration
+   * @see KafkaMessageConfig
    */
   @KafkaListener(
       topics = "${kafka.topics.hello}",
-      groupId = "#{kafkaMessagingConfiguration.groupId}",
+      groupId = "#{kafkaMessageConfig.groupId}",
       containerFactory = "helloWorldEventListenerContainerFactory"
   )
   @Override

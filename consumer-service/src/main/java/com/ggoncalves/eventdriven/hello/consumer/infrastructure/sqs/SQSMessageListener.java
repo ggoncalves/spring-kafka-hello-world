@@ -1,8 +1,9 @@
-package com.ggoncalves.eventdriven.hello.consumer.infrastructure;
+package com.ggoncalves.eventdriven.hello.consumer.infrastructure.sqs;
 
 import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
+import com.ggoncalves.eventdriven.hello.consumer.infrastructure.MessageListener;
 import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEvent;
 import com.google.protobuf.util.JsonFormat;
 import lombok.RequiredArgsConstructor;

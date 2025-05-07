@@ -1,4 +1,4 @@
-package com.ggoncalves.eventdriven.hello.producer.infrastructure;
+package com.ggoncalves.eventdriven.hello.producer.infrastructure.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;

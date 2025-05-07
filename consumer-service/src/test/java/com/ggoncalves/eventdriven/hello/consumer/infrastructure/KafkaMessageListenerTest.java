@@ -4,6 +4,7 @@ import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.read.ListAppender;
+import com.ggoncalves.eventdriven.hello.consumer.infrastructure.kafka.KafkaMessageListener;
 import com.ggoncalves.eventdriven.hello.shared.domain.HelloWorldEvent;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +19,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-@DisplayName("KafkaMessagingConfiguration should")
+@DisplayName("KafkaMessageConfig should")
 class KafkaMessageListenerTest {
 
   private ListAppender<ILoggingEvent> listAppender;
